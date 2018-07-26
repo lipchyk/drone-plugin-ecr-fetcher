@@ -48,3 +48,15 @@ That parameter is of `list` type where you specify your docker images
 ## aws_region (optional)
 
 The name of the AWS region. By default it's set to `eu-central-1`.
+
+```
+pipeline:
+  pull:
+    image: yspro/drone-plugin-ecr-fetcher
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    images:
+      - $ecr_repo/private_image
+    aws_region: us-east-1
+  ... your steps
+```
